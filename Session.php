@@ -12,16 +12,9 @@ use Ali\InstanceTrait;
 
 class Session
 {
-    use InstanceTrait {
-        getInstance as private _getInstance;
-    }
+    use InstanceTrait;
 
-    public static function getInstance($config = [])
-    {
-        return self::_getInstance($config);
-    }
-
-    private function __construct($config = [])
+    public function start($config = [])
     {
         $saveHandler = isset($config['save_handler']) ? $config['save_handler'] : 'files';
         $savePath = isset($config['save_path']) ? $config['save_path'] : '/tmp';
@@ -74,6 +67,8 @@ class Session
         if (!isset($_SESSION)) {
             session_start();
         }
+
+        return $this;
     }
 
     public function close()
