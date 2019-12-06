@@ -16,7 +16,6 @@
     "require": {
         "php": "^7.1",
         "boxunsoft/php-instance": "^v1.1.0",
-        "boxunphp/php-exception": "^v1.0.0"
     },
     "autoload": {
         "psr-4": {
